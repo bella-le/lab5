@@ -10,6 +10,20 @@ $(document).ready(function() {
  */
 function initializePage() {
 	console.log("Javascript connected!");
+	$(".friend a").click(friendClick);
+}
+
+function friendClick(e) {
+    // prevent the page from reloading
+    e.preventDefault();
+    // In an event handler, $(this) refers to  
+	// the object that triggered the event   
+	console.log("CLICK!!");
+	var containingFriend = $(this).closest(".friend");
+	console.log(containingFriend.text());
+	var linko = $(containingFriend).find(".friend-name");
+	console.log(linko.text());
+	linko.text(anagrammedName(linko.text()));
 }
 
 function anagrammedName(name) {
